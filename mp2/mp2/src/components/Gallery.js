@@ -120,12 +120,14 @@ function Gallery({ allPokemons }) {
             <div className="searchContent">
                 {pokemonFiltered.length !== 0 ? (
                     (pokemonFiltered["pokemonFiltered"]).map((pokemon) => (
+                        <div class="searchContainer">
                         <Link to={`/details/${pokemon.id}`}>
                             <div key={pokemon.id} className="searchElement">
                                 <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} alt="loading" />
                                 <div className="galleryFont"> {pokemon.name} </div>
                             </div>
                         </Link>
+                        </div>
                     ))
                 ) : (
                     <div> </div>

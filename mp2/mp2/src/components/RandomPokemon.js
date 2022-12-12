@@ -114,12 +114,14 @@ function RandomPokemon({ allPokemons }) {
 
             <div className="randomContent">
                 {id !== ''?(
+                    <div class="searchContainer">
                     <Link to={`/details/${id}`}>
                     <div key={id} className="randomElement">
                         <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt="loading" />
                         <div className="galleryFont"> {generated_name} </div>
                     </div>
                     </Link>
+                    </div>
                 ):(
                     <div> </div>
                 )}   

@@ -9,9 +9,14 @@
 }
 
 .galleryFont {
+    font-size: small;
     text-align: center;
     background-color: pink;
     color: white;
-    bottom: 5px;
-    left: 10px
 }
+
+.searchContainer{
+    display: flex;
+    justify-content: flex-start;
+}
+
