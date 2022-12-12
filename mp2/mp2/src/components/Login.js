@@ -32,12 +32,12 @@ class Login extends React.Component {
       },
     }).then(res => res.json()).then(json => {
       let data = json['data'];
-      if (data.length == 0) {
+      if (data.length === 0) {
         console.warn("No such user! Please Sign up first");
         alert("No such user! Please Sign up first");
       } else {
         for (let i = 0; i < data.length; i++) {
-          if (data[i]['password'] == pwd) {
+          if (data[i]['password'] === pwd) {
             this.setState({ login: true, uname: uname });
             login(uname, data[i]["_id"]);
             this.props.onChangeLogin();
@@ -66,7 +66,7 @@ class Login extends React.Component {
       })
     }).then(res => res.json()).then(json => {
       let message = json['message'];
-      if (message != "created") {
+      if (message !== "created") {
         alert(message);
         return;
       } else {
@@ -114,7 +114,7 @@ class Login extends React.Component {
           <Col>
             <div className="bg-light border" style={{ textAlign: "center", minWidth: "280px" }}>
               <br />
-              <Button type='submit' onClick={this.handleUserSubmit} variant="success">&nbsp;&nbsp;Login&nbsp;&nbsp;</Button>
+              <Button type='submit' style={{padding:"10px 24px"}} onClick={this.handleUserSubmit} variant="success">&nbsp;&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;&nbsp;</Button>
               <br /><br />
             </div>
           </Col>
@@ -125,7 +125,7 @@ class Login extends React.Component {
           <Col>
             <div className="bg-light border" style={{ textAlign: "center", minWidth: "280px" }}>
               <br />
-              <Button type='submit' onClick={this.handleUserSignup} variant="success">&nbsp;&nbsp;Sign Up&nbsp;&nbsp;</Button>
+              <Button type='submit' style={{padding:"10px 24px"}} onClick={this.handleUserSignup} variant="success">&nbsp;&nbsp;Sign Up&nbsp;&nbsp;</Button>
               <br />
               <br />
             </div>
@@ -138,7 +138,7 @@ class Login extends React.Component {
             <div className="bg-light border" style={{ textAlign: "center", minWidth: "280px" }}>
               <br />
               <Link to='/'>
-                <Button type='submit' variant="success">&nbsp;&nbsp;Main Page&nbsp;&nbsp;</Button>
+                <Button type='submit' style={{padding:"10px 24px"}} variant="success">Main Page</Button>
               </Link>
               <br />
               <br />
