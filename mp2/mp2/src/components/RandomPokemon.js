@@ -9,6 +9,7 @@ import { BACK_END } from '../App'
 
 var generated_pokemon = '';
 var generated_name = '';
+var generated = 0;
 function RandomPokemon({ allPokemons }) {
     const [id, setId] = useState('');
     const [isLogin, setLogin] = useState(getLoginUser() !== undefined)
@@ -37,6 +38,7 @@ function RandomPokemon({ allPokemons }) {
                 setId(response['data']['pokemon_id']);
                 generated_name = response['data']['identifier']
                 console.log(id);
+                generated = 1;
             })
         } else if (event.target.value === "add_pokemon") { 
             console.log(generated_pokemon)
@@ -48,7 +50,13 @@ function RandomPokemon({ allPokemons }) {
             }).catch(err => {
                 console.log(err);
             })
-            alert(`Congratulation! you have successfully add ${generated_name} to your pocket!`);
+            if (generated === 0) {
+                alert(`please generate a pokemon first!`);
+            }else {
+                alert(`Congratulation! you have successfully add ${generated_name} to your pocket!`);
+            }
+            generated=0;
+            
         }
     }
 
