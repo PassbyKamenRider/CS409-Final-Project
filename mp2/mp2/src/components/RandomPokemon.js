@@ -12,15 +12,15 @@ var generated_name = '';
 function RandomPokemon({ allPokemons }) {
     const [id, setId] = useState('');
     const [isLogin, setLogin] = useState(getLoginUser() !== undefined)
+    if (!getLoginUser()) {
+        console.warn("navigate to login page");
+        window.open("/login","_self");
+        return;
+    }
     const userLogout = () => { logout(); setLogin(false); }
     const handleFilterChange = async (event) => {
         const userinfo = getLoginUser();
         const uid = userinfo['uid'];
-        if (!uid) {
-            console.warn("navigate to login page");
-            window.open("/login")
-            return;
-        }
         if (event.target.value === "random") {
             
             var res = await fetch(BACK_END+`/api/PokemonGenerator/${uid}`)
@@ -48,6 +48,7 @@ function RandomPokemon({ allPokemons }) {
             }).catch(err => {
                 console.log(err);
             })
+            alert(`Congratulation! you have successfully add ${generated_name} to your pocket!`);
         }
     }
 

@@ -2,7 +2,7 @@ import './MyPokemon.css';
 import { Link } from "react-router-dom";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button'
-import { getLoginUser, logout, login } from './Login'
+import { getLoginUser, logout} from './Login'
 import { useState, React } from 'react';
 import PropTypes from 'prop-types';
 import { BACK_END } from '../App'
@@ -10,16 +10,15 @@ import { BACK_END } from '../App'
 function MyPokemon({ allPokemons }) {
     const [pokemonFiltered, setpokemonFiltered] = useState([]);
     const [isLogin, setLogin] = useState(getLoginUser() !== undefined)
-    const userLogout = () => { logout(); setLogin(false); }
-
+    const userLogout = () => { logout(); setLogin(false); window.open("/","_self");}
+    if (!getLoginUser()) {
+        console.warn("navigate to login page");
+        window.open("/login","_self");
+        return;
+    }
     const handleFilterChange = (event) => {
         if (event.target.value === "showAll") {
             const userinfo = getLoginUser()
-            if (!userinfo) {
-                console.warn("navigate to login page");
-                window.open("/login")
-                return;
-            }
             const uid = userinfo['uid'];
 
             var pokemon_data;
@@ -42,7 +41,7 @@ function MyPokemon({ allPokemons }) {
 
                     for (let i = 0; i < pokemon_to_show.length; i++) {
                         for (let j = 0; j < pokemon_data.length; j++) {
-                            if (pokemon_data[j]["_id"] == pokemon_to_show[i]) {
+                            if (pokemon_data[j]["_id"] === pokemon_to_show[i]) {
                                 to_splice.push(pokemon_data[j]["pokemon_id"]);
                             }
                         }
