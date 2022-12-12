@@ -7,7 +7,7 @@ import { useState, React } from 'react';
 import PropTypes from 'prop-types';
 
 
-function Detail({ name, id, height, weight, ability, type }) {
+function Detail({ name, id, height, weight, ability, type}) {
     const [isLogin, setLogin] = useState(getLoginUser() !== undefined)
     const userLogout = () => { logout(); setLogin(false); }
 
@@ -68,23 +68,38 @@ function Detail({ name, id, height, weight, ability, type }) {
             </div>
 
             <div className="detailContent">
+                <div className="item3">
+                    {name} #{id}
+                </div>
                 <div className="item1">
-                    <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt="loading" />
+                    <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`} alt="loading" />
+                </div>
+                <div className="item4">
+                    <div className="item4_text">
+                        {type.map((tp) => {
+                            return (
+                                <div className={`type_${tp.type.name}`}>
+                                    {tp.type.name}
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
 
                 <div className="item2">
-                    <div> {"name: " + name} </div>
-                    <div> {"id: " + id} </div>
-                    <div> {"weight: " + weight} </div>
-                    <div> {"height: " + height} </div>
-                    <div> {"ability: "}
+                    <div className="item2_height"> {"height"}
+                        <div>
+                            {height}
+                        </div>
+                    </div>
+                    <div className="item2_weight"> {"weight"}
+                        <div>
+                            {weight}
+                        </div>
+                    </div>
+                    <div className="item2_abilities"> {"ability: "}
                         {ability.map((ab) => (
                             <div> {ab.ability.name} </div>
-                        ))}
-                    </div>
-                    <div> {"type: "}
-                        {type.map((tp) => (
-                            <div> {tp.type.name} </div>
                         ))}
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import './App.css';
 import PokemonSearch from './components/Search.js'
 import Gallery from './components/Gallery.js'
-import { getLoginUser as getLoginUser, Login, Signup } from './components/Login';
+import { getLoginUser, Login} from './components/Login';
 import Detail from './components/Detail';
 import MyPokemon from './components/MyPokemon.js';
 import RandomPokemon from './components/RandomPokemon.js';
@@ -11,21 +11,21 @@ import {useState, React, useEffect} from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 
 
-export const BACK_END = 'http://localhost:4000'
+export const BACK_END = 'https://final-project-cs409.herokuapp.com'
 
-function PrivateRoute() {
-  return getLoginUser() ? <Outlet /> : <Navigate to='/login' />;
-}
+// function PrivateRoute() {
+//   return getLoginUser() ? <Outlet /> : <Navigate to='/login' />;
+// }
 
 function LoginRoute() {
   return !getLoginUser() ? <Outlet /> : <Navigate to='/' />;
 }
 
 function App() {
-  const [loginInfo, setLogin] = useState(getLoginUser());
+  //const [loginInfo, setLogin] = useState(getLoginUser());
   const [allPokemons, setAllPokemons] = useState([]);
 
-  const switchLoginState = () => { setLogin(getLoginUser()) }
+  //const switchLoginState = () => { setLogin(getLoginUser()) }
 
   const getAllPokemon = async () => {
     const res = await Axios.get("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
@@ -47,7 +47,7 @@ function App() {
       <main>
         <Routes>
           <Route path='/login' element={<LoginRoute />}>
-            <Route path='/login' element={<Login onChangeLogin={switchLoginState} />} />
+            <Route path='/login' element={<Login />} />
           </Route>
           {/* <Route path='/signup' element={<Signup />} /> */}
           <Route path="/" element={<PokemonSearch allPokemons={allPokemons}/>} />

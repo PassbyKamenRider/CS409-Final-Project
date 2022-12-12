@@ -1,40 +1,78 @@
 .detailContent {
     display: grid;
     margin-top: 50px;
-    height: 400px;
-    grid-template-columns: 20% 20% 5% 20% 35%;
+    height: 600px;
+    grid-template-columns: 20% 20% 5% 30% 25%;
 }
 
 .item1 {
     position: relative;
-    grid-row-start: 1;
+    grid-row-start: 2;
     grid-row-end: 7;
     grid-column-start: 2;
     grid-column-end: 3;
 }
 
 .item1 img {
+    background-color: white;
+    border-radius: 25px;
     margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 150%;
+    width: 100%;
     height: auto;
 }
 
 .item2 {
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    background-color: #f0f0f0;
+    border-radius: 25px;
     text-align: center;
-    grid-row-start: 3;
-    grid-row-end: 7;
+    grid-row-start: 4;
+    grid-row-end: 5;
     grid-column-start: 4;
     grid-column-end: 5;
     font-size: x-large;
     font-weight: bold;
 }
 
-.item2 div {
+.item2_height {
+    margin-top: 10px;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.item2_height div {
+    font-size: large;
+}
+
+.item2_weight {
     margin-top: 5px;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.item2_weight div {
+    font-size: large;
+}
+
+.item2_abilities {
+    margin-top: 10px;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.item2_abilities div {
+    font-size: large;
 }
 
 .left_arrow {
@@ -42,7 +80,7 @@
     width: 2%;
     height: auto;
     margin-left: 10%;
-    margin-top: 300px;
+    margin-top: 400px;
 }
 
 .left_arrow:hover {
@@ -54,9 +92,179 @@
     width: 2%;
     height: auto;
     margin-left: 50%;
-    margin-top: 300px;
+    margin-top: 400px;
 }
 
 .right_arrow:hover {
     cursor: pointer;
+}
+
+.item3 {
+    font-size: xxx-large;
+    font-weight: bold;
+    text-align: center;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 7;
+}
+
+.item4 {
+    text-align: end;
+    display: flex;
+    justify-content: center;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.item4_text {
+    display: flex;
+    column-gap: 10px;
+    align-self: flex-end;
+}
+
+.type_normal {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #9fa19f;
+    border-radius: 10px;
+}
+
+.type_fighting {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #f58100;
+    border-radius: 10px;
+}
+
+.type_flying {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #8ab9f0;
+    border-radius: 10px;
+}
+
+.type_poison {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #8d43cd;
+    border-radius: 10px;
+}
+
+.type_ground {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #8c5120;
+    border-radius: 10px;
+}
+
+.type_rock {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #aea980;
+    border-radius: 10px;
+}
+
+.type_bug {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #92a108;
+    border-radius: 10px;
+}
+
+.type_ghost {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #6d4271;
+    border-radius: 10px;
+}
+
+.type_steel {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #6aa1b8;
+    border-radius: 10px;
+}
+
+.type_fire {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #db2c2b;
+    border-radius: 10px;
+}
+
+.type_water {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #4080f1;
+    border-radius: 10px;
+}
+
+.type_grass {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #4fa020;
+    border-radius: 10px;
+}
+
+.type_electric {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #f4c000;
+    border-radius: 10px;
+}
+
+.type_psychic {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #e4447a;
+    border-radius: 10px;
+}
+
+.type_ice {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #62d8ff;
+    border-radius: 10px;
+}
+
+.type_dragon {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #5661e3;
+    border-radius: 10px;
+}
+
+.type_dark {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #4f413f;
+    border-radius: 10px;
+}
+
+.type_fairy {
+    text-align: center;
+    color: white;
+    width: 100px;
+    background-color: #e772f1;
+    border-radius: 10px;
 }
