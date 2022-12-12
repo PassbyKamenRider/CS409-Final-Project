@@ -19,7 +19,7 @@ export const logout = () => { console.log("Logout"); cookie.remove('userInfo'); 
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { login: false, uname: ""};
+    this.state = { login: false, uname: "" };
   }
 
   handleUserSubmit = (event) => {
@@ -53,75 +53,7 @@ class Login extends React.Component {
     event.preventDefault();
   };
 
-  render() {
-    return (
-      <Container fluid>
-        <Row><br /></Row>
-        <Row><br /></Row>
-        <Row><br /></Row>
-        <Row><br /></Row>
-        <Row><br /></Row>
-        <Row>
-          <Col></Col>
-          <Col>
-            <div className="bg-light border" style={{ textAlign: "center", minWidth: "280px" }}>
-              <br />
-              Username: &nbsp;
-              <input type="text" name="uname" id="uname" />
-              <br /><br />
-            </div>
-          </Col>
-          <Col></Col>
-        </Row>
-        <Row>
-          <Col></Col>
-          <Col>
-            <div className="bg-light border" style={{ textAlign: "center", minWidth: "280px" }}>
-              <br />
-              Password: &nbsp;
-              <input type="password" name="pwd" id="pwd" />
-              <br /><br />
-            </div>
-          </Col>
-          <Col></Col>
-        </Row>
-        <Row>
-          <Col></Col>
-          <Col>
-            <div className="bg-light border" style={{ textAlign: "center", minWidth: "280px" }}>
-              <br />
-              <Button type='submit' onClick={this.handleUserSubmit} variant="success">&nbsp;&nbsp;Login&nbsp;&nbsp;</Button>
-              <br /><br />
-            </div>
-          </Col>
-          <Col></Col>
-        </Row>
-        <Row>
-          <Col></Col>
-          <Col>
-            <div className="bg-light border" style={{ textAlign: "center", minWidth: "280px" }}>
-              <br />
-              <Link to='/signup'>
-                <Button type='submit' variant="success">&nbsp;&nbsp;Sign Up&nbsp;&nbsp;</Button>
-              </Link>
-              <br /><br />
-            </div>
-          </Col>
-          <Col></Col>
-        </Row>
-      </Container>
-    )
-  }
-}
-
-
-class Signup extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { login: false, uname: "", password: "" };
-  }
-
-  handleSignup = (event) => {
+  handleUserSignup = (event) => {
     const uname = document.getElementById("uname").value;
     const pwd = document.getElementById("pwd").value;
     fetch(BACK_END + `/api/users`, {
@@ -147,7 +79,7 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <Container fluid id="bg-img">
+      <Container fluid>
         <Row><br /></Row>
         <Row><br /></Row>
         <Row><br /></Row>
@@ -156,7 +88,7 @@ class Signup extends React.Component {
         <Row>
           <Col></Col>
           <Col>
-            <div className="bg-light border col-md-offset-3" style={{ textAlign: "center", minWidth: "280px" }}>
+            <div className="bg-light border" style={{ textAlign: "center", minWidth: "280px" }}>
               <br />
               Username: &nbsp;
               <input type="text" name="uname" id="uname" />
@@ -182,7 +114,7 @@ class Signup extends React.Component {
           <Col>
             <div className="bg-light border" style={{ textAlign: "center", minWidth: "280px" }}>
               <br />
-              <Button type='submit' variant="success" onClick={this.handleSignup}>&nbsp;&nbsp;Sign Up&nbsp;&nbsp;</Button>
+              <Button type='submit' onClick={this.handleUserSubmit} variant="success">&nbsp;&nbsp;Login&nbsp;&nbsp;</Button>
               <br /><br />
             </div>
           </Col>
@@ -193,9 +125,9 @@ class Signup extends React.Component {
           <Col>
             <div className="bg-light border" style={{ textAlign: "center", minWidth: "280px" }}>
               <br />
-              <Link to='/login'>
-                <Button type='submit' variant="success">&nbsp;&nbsp;Login&nbsp;&nbsp;</Button>
-              </Link>
+              {/* <Link to='/signup'> */}
+              <Button type='submit' onClick={this.handleUserSignup} variant="success">&nbsp;&nbsp;Sign Up&nbsp;&nbsp;</Button>
+              {/* </Link> */}
               <br /><br />
             </div>
           </Col>
@@ -206,4 +138,4 @@ class Signup extends React.Component {
   }
 }
 
-export { Login, Signup };
+export { Login };
