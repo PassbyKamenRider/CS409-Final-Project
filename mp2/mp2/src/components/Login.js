@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import cookie from 'react-cookies';
+import { Link } from "react-router-dom";
 import { BACK_END } from '../App'
 import * as React from 'react';
 
@@ -31,12 +32,12 @@ class Login extends React.Component {
       },
     }).then(res => res.json()).then(json => {
       let data = json['data'];
-      if (data.length === 0) {
+      if (data.length == 0) {
         console.warn("No such user! Please Sign up first");
         alert("No such user! Please Sign up first");
       } else {
         for (let i = 0; i < data.length; i++) {
-          if (data[i]['password'] === pwd) {
+          if (data[i]['password'] == pwd) {
             this.setState({ login: true, uname: uname });
             login(uname, data[i]["_id"]);
             this.props.onChangeLogin();
@@ -65,7 +66,7 @@ class Login extends React.Component {
       })
     }).then(res => res.json()).then(json => {
       let message = json['message'];
-      if (message !== "created") {
+      if (message != "created") {
         alert(message);
         return;
       } else {
@@ -124,10 +125,23 @@ class Login extends React.Component {
           <Col>
             <div className="bg-light border" style={{ textAlign: "center", minWidth: "280px" }}>
               <br />
-              {/* <Link to='/signup'> */}
               <Button type='submit' onClick={this.handleUserSignup} variant="success">&nbsp;&nbsp;Sign Up&nbsp;&nbsp;</Button>
-              {/* </Link> */}
-              <br /><br />
+              <br />
+              <br />
+            </div>
+          </Col>
+          <Col></Col>
+        </Row>
+        <Row>
+          <Col></Col>
+          <Col>
+            <div className="bg-light border" style={{ textAlign: "center", minWidth: "280px" }}>
+              <br />
+              <Link to='/'>
+                <Button type='submit' variant="success">&nbsp;&nbsp;Main Page&nbsp;&nbsp;</Button>
+              </Link>
+              <br />
+              <br />
             </div>
           </Col>
           <Col></Col>
