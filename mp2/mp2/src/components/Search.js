@@ -139,9 +139,9 @@ function PokemonSearch({ allPokemons }) {
 
       <div className="sortForm">
         <input type="radio" id="ascending" name="sortOrder" value="ascending" onChange={handleSortChange} />
-        <label htmlFor="ascending"> ascending </label>
+        <label htmlFor="ascending"> ascending&nbsp; </label>
         <input type="radio" id="descending" name="sortOrder" value="descending" onChange={handleSortChange} />
-        <label htmlFor="descending"> descending </label>
+        <label htmlFor="descending"> &nbsp;descending </label>
 
         <br />
 

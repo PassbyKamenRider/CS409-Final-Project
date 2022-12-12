@@ -50,3 +50,8 @@
   bottom: 5px;
   left: 10px
 }
+
+.navbar {
+  display: flex;
+  justify-content:space-evenly;
+}
