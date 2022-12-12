@@ -76,7 +76,7 @@ class Login extends React.Component {
         <Row>
           <Col></Col>
           <Col>
-            <div className="border" style={{ textAlign: "center", minWidth: "280px" }}>
+            <div className="bg-light border" style={{ textAlign: "center", minWidth: "280px" }}>
               <br />
               Password: &nbsp;
               <input type="password" name="pwd" id="pwd" />
@@ -147,7 +147,7 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <Container fluid>
+      <Container fluid id="bg-img">
         <Row><br /></Row>
         <Row><br /></Row>
         <Row><br /></Row>

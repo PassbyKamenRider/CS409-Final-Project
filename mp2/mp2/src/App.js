@@ -5,11 +5,9 @@ import { getLoginUser as getLoginUser, Login, Signup } from './components/Login'
 import Detail from './components/Detail';
 import MyPokemon from './components/MyPokemon.js';
 import RandomPokemon from './components/RandomPokemon.js';
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Navigate, Outlet } from "react-router-dom";
 import Axios from 'axios';
 import {useState, React, useEffect} from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
-
 
 export const BACK_END = 'http://localhost:4000'
 
@@ -52,7 +50,7 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path="/" element={<PokemonSearch allPokemons={allPokemons}/>} />
           <Route path="/gallery" element={<Gallery allPokemons={allPokemons}/>} />
-          <Route path="/my_pokemon" element={<MyPokemon allPokemons={allPokemons}/>} />
+          <Route path="/my_pokemon" element={getLoginUser() ? <MyPokemon allPokemons={allPokemons}/> : <Navigate to='/login' />} />
           <Route path="/random" element={<RandomPokemon allPokemons={allPokemons}/>} />
           {allPokemons.map((pokemon) => (
             <Route path={`/details/${pokemon.id}`} element={<Detail name={`${pokemon.name}`} id={`${pokemon.id}`}
